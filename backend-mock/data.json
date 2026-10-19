@@ -1,0 +1,10 @@
+{
+  "products": [
+    { "id": 1, "name": "Mechanical keyboard", "price": 129, "description": "Tenkeyless, brown switches, PBT keycaps." },
+    { "id": 2, "name": "USB-C hub", "price": 49, "description": "Two USB-A, HDMI 4K, 100 W pass-through." },
+    { "id": 3, "name": "Laptop stand", "price": 35, "description": "Aluminium, six heights, folds flat." },
+    { "id": 4, "name": "Webcam", "price": 79, "description": "1080p at 60 fps, privacy shutter." },
+    { "id": 5, "name": "Desk mat", "price": 24, "description": "90 x 40 cm, stitched edges." },
+    { "id": 6, "name": "Noise-cancelling headphones", "price": 249, "description": "30 hours of battery, multipoint Bluetooth." }
+  ]
+}

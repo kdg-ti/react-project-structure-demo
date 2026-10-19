@@ -1,0 +1,35 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/components/**", "src/hooks/**", "src/lib/**",
+        "src/types/**", "src/utils/**"
+      ],
+      "rules": {
+        "no-restricted-imports": ["error", {
+          "patterns": [{
+            "group": ["@/features/**", "@/pages/**"],
+            "message": "Shared/global code imports no features or pages."
+          }]
+        }]
+      }
+    },
+    {
+      "files": ["src/features/**"],
+      "rules": {
+        "no-restricted-imports": ["error", {
+          "patterns": [{
+            "group": ["@/features/**", "@/pages/**"],
+            "message": "A feature imports only shared/global code."
+          }]
+        }]
+      }
+    }
+  ]
+}
