@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/api/**", "src/components/**", "src/hooks/**",
+        "src/store/**", "src/types/**", "src/utils/**"
+      ],
+      "rules": {
+        "no-restricted-imports": ["error", {
+          "patterns": [{
+            "group": ["@/pages/**"],
+            "message": "Only App.tsx imports a page."
+          }]
+        }]
+      }
+    }
+  ]
+}
