@@ -30,7 +30,7 @@ src/
 ├── api/                      products.ts: every call to the backend
 ├── components/
 │   ├── ui/                   Button, Spinner
-│   ├── layout/               AppShell, Header
+│   ├── layout/               Header
 │   ├── Cart/                 Cart and its sub-components, AddToCartButton, CartBadge
 │   ├── ProductList/          ProductList and ProductCard
 │   └── ProductDetail.tsx     no sub-components: one file

@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import axios from 'axios'
 import { BrowserRouter, Route, Routes } from 'react-router'
-import { AppShell } from '@/components/layout/AppShell'
+import { Header } from '@/components/layout/Header'
 import { CartBadge } from '@/components/Cart/CartBadge'
 import { CheckoutPage } from '@/pages/CheckoutPage'
 import { HomePage } from '@/pages/HomePage'
@@ -15,13 +15,16 @@ const queryClient = new QueryClient({ defaultOptions: { queries: { staleTime: 30
 export const App = () => (
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
-      <AppShell actions={<CartBadge />}>
+      <Header>
+        <CartBadge />
+      </Header>
+      <main style={{ maxWidth: 800, margin: '0 auto', padding: '1rem' }}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products/:id" element={<ProductPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
-      </AppShell>
+      </main>
     </BrowserRouter>
   </QueryClientProvider>
 )
