@@ -1,19 +1,12 @@
-import type { ReactNode } from 'react'
 import { Spinner } from '@/components/ui/Spinner'
 import { formatPrice } from '@/utils/formatPrice'
 import { useProduct } from '../hooks/useProduct'
-import type { Product } from '../types/product'
 
 type Props = {
   id: number
-  /**
-   * What to show under the product, such as an "Add to cart" button. The products feature may not
-   * import the cart feature, so the page hands us a function that makes that button from the product.
-   */
-  renderActions?: (product: Product) => ReactNode
 }
 
-export const ProductDetail = ({ id, renderActions }: Props) => {
+export const ProductDetail = ({ id }: Props) => {
   const { data: product, isPending, isError } = useProduct(id)
 
   if (isPending) return <Spinner />
@@ -24,7 +17,6 @@ export const ProductDetail = ({ id, renderActions }: Props) => {
       <h1>{product.name}</h1>
       <p style={{ fontSize: '1.25rem' }}>{formatPrice(product.price)}</p>
       <p>{product.description}</p>
-      {renderActions?.(product)}
     </article>
   )
 }

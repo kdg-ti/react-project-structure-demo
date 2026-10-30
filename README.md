@@ -32,7 +32,7 @@ src/
 ├── App.tsx                   providers and routes: the app layer
 ├── components/               SHARED / GLOBAL: knows nothing about products or carts
 │   ├── ui/                   Button, Spinner
-│   └── layout/               AppShell, Header
+│   └── layout/               Header
 ├── lib/                      axios and TanStack Query, configured once
 ├── utils/                    formatPrice: a pure function
 ├── features/
@@ -53,9 +53,9 @@ Things to notice, one per place:
 1. **`pages/HomePage.tsx`** is three lines. `ProductList` fetches its own data; the page only puts it
    on the screen.
 2. **`pages/ProductPage.tsx`** shows two features on one screen. The products feature may not import
-   the cart feature, so the page hands `ProductDetail` a function that makes the "Add to cart" button.
-3. **`App.tsx`** gives `AppShell` the `CartBadge`. The shell is shared, so it cannot import the cart;
-   it gets the badge handed in, as a prop.
+   the cart feature, so the page puts the "Add to cart" button under `ProductDetail` itself.
+3. **`App.tsx`** puts the `CartBadge` inside `Header`, as its children. The header is shared, so it
+   cannot import the cart itself.
 4. **`features/cart/types/cartLine.ts`** remembers a product's name and price itself, so the cart
    never imports `Product` from the products feature.
 5. **`features/cart/components/CartBadge.tsx`** reads the store with a selector: it re-renders only

@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router'
 
-type Props = { actions?: ReactNode }
+type Props = { children?: ReactNode }
 
-export const Header = ({ actions }: Props) => (
+export const Header = ({ children }: Props) => (
   <header
     style={{
       display: 'flex',
@@ -18,6 +18,6 @@ export const Header = ({ actions }: Props) => (
       Shop
     </Link>
     <Link to="/checkout">Checkout</Link>
-    <span style={{ marginLeft: 'auto' }}>{actions}</span>
+    <span style={{ marginLeft: 'auto' }}>{children}</span>
   </header>
 )
